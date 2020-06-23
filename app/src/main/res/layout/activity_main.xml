@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/AppBar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fitsSystemWindows="true"
+			android:theme="@style/AppTheme.AppBarOverlay">
+
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				app:layout_scrollFlags="scroll|enterAlways"
+				app:popupTheme="@style/AppTheme.PopupOverlay"
+				app:subtitle=" v 2.1"/>
+
+		</com.google.android.material.appbar.AppBarLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_marginTop="15dp"
+		android:paddingLeft="10dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?attr/textAppearanceSubtitle1"
+			android:layout_width="wrap_content"
+			android:text="HID Support status:"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="Unsupported"
+			android:paddingLeft="15dp"
+			android:id="@+id/hid_supported"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_marginTop="15dp"
+		android:paddingLeft="10dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?attr/textAppearanceSubtitle1"
+			android:layout_width="wrap_content"
+			android:text="FunctionFS support:"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="Unsupported"
+			android:paddingLeft="15dp"
+			android:id="@+id/fs_supported"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:layout_marginTop="15dp"
+		android:paddingLeft="0dp">
+
+		<com.google.android.material.button.MaterialButton
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="chmod hidg*"
+			android:id="@+id/chmod_btn"
+			android:layout_marginLeft="10dp"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="Testing device:"
+			android:layout_marginLeft="10dp"
+			android:layout_marginTop="15dp"/>
+
+		<View
+			android:background="?android:attr/dividerVertical"
+			android:layout_height="1dp"
+			android:layout_width="match_parent"/>
+
+		<com.google.android.material.button.MaterialButton
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:textAppearance="?attr/textAppearanceSubtitle1"
+			android:text="Download USB Keyboard"
+			android:id="@+id/duk_btn"/>
+
+		<com.google.android.material.button.MaterialButton
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:textAppearance="?attr/textAppearanceSubtitle1"
+			android:text="Download Rubber Ducky (Rucky)"
+			android:id="@+id/drd_btn"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:layout_gravity="bottom">
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/close_btn"
+				style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:text="Exit "
+				app:icon="@drawable/ic_close"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>
+

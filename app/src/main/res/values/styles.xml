@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTextViewHomeTitle"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item> 
+        <item name="android:ellipsize">end</item> 
+        <item name="android:maxLines">1</item> 
+    </style> 
+
+    <style name="MyTextViewHomeSubtitle"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item> 
+        <item name="android:ellipsize">end</item> 
+        <item name="android:maxLines">1</item>
+    </style> 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" /> 
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" /> 
+    <style name="MyTextViewTitle"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item> 
+    </style> 
+
+    <style name="MyTextViewHeadline"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item> 
+    </style> 
+
+    <style name="MyTextViewMedium"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item> 
+    </style> 
+
+    <style name="MyTextViewSubtitle"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item> 
+    </style> 
+
+    <style name="MyTextViewSmall"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item> 
+    </style> 
+
+    <style name="MyTextViewLarge"> 
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item> 
+    </style> 
+</resources>
