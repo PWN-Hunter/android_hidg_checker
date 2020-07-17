@@ -1,34 +1,38 @@
 package com.mirivan.hcheck;
  
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.UiModeManager;
 import android.os.Bundle;
 import android.content.Intent;
-import androidx.appcompat.widget.Toolbar;
-import com.google.android.material.button.MaterialButton;
-import java.io.File;
-import java.lang.Class;
-import java.io.IOException;
+import android.content.Context;
+import java.io.*;
 import android.net.Uri;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Toast;
-import android.widget.TextView;
+import android.view.View.*;
+import android.widget.*;
+import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.button.MaterialButton;
 
-public class MainActivity extends Activity { 
-
+public class MainActivity extends AppCompatActivity {
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("HID Checker");
-        
+		setContentView();
+		
+		Toolbar toolbar = findViewById(R.id.toolbar);
+		toolbar.setTitle(R.string.app_name);
+		
+		LinearLayout testing = findViewById(R.id.testing);
+		LinearLayout nsuoder = findViewById(R.id.nsudoer);
+		TextView hid_supported = findViewById(R.id.hid_supported);
+		TextView fs_supported = findViewById(R.id.fs_supported);
         MaterialButton chmod_btn = findViewById(R.id.chmod_btn);
         MaterialButton duk_btn = findViewById(R.id.duk_btn);
         MaterialButton drd_btn = findViewById(R.id.drd_btn);
         MaterialButton close_btn = findViewById(R.id.close_btn);
-        
+		
         OnClickListener init = new OnClickListener(){
             @Override
             public void onClick(View v){
@@ -37,65 +41,77 @@ public class MainActivity extends Activity {
                         try {
                             Process sudo = Runtime.getRuntime().exec("su");
                             sudo.getOutputStream().write("chmod 666 /dev/hidg*".getBytes());
+							Snackbar.make(v, R.string.repermed, Snackbar.LENGTH_LONG).setAction(R.string.ok, null).show();
                         } catch(IOException e){
-                            Toast toast = Toast.makeText(getApplicationContext(), 
-                                                         "Failed to initialize chmod.", Toast.LENGTH_SHORT); 
-                            toast.show(); 
+							Snackbar.make(v, R.string.failed_init_chmod, Snackbar.LENGTH_LONG).show();
                         }
                         break;
                     case R.id.duk_btn:
-                        String duk_link = "https://f-droid.org/app/remote.hid.keyboard.client";
-                        Intent duk_intent = new Intent(Intent.ACTION_VIEW);
-                        duk_intent.setData(Uri.parse(duk_link));
-                        startActivity(duk_intent);
+                        Intent duk_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://f-droid.org/app/remote.hid.keyboard.client"));
+						startActivity(duk_link);
                         break;
                     case R.id.drd_btn:
-                        String drb_link = "https://f-droid.org/app/com.mayank.rucky";
-                        Intent drb_intent = new Intent(Intent.ACTION_VIEW);
-                        drb_intent.setData(Uri.parse(drb_link));
-                        startActivity(drb_intent);
+						Intent drd_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://f-droid.org/app/com.mayank.rucky"));
+						startActivity(drd_link);
                         break;
                     case R.id.close_btn:
-                        System.exit(0);
+                        finish();
+                    }
                 }
-            }
-        };
+            };
         duk_btn.setOnClickListener(init);
         drd_btn.setOnClickListener(init);
         chmod_btn.setOnClickListener(init);
         close_btn.setOnClickListener(init);
-
+		toolbar.setOnClickListener(multi_init);
+		
         try {
             Runtime.getRuntime().exec("su");
         } catch(IOException e){
-            Toast toast = Toast.makeText(getApplicationContext(), 
-                                         "Failed to initialize su.", Toast.LENGTH_SHORT); 
-            toast.show(); 
+            testing.setVisibility(View.INVISIBLE);
+			nsuoder.setVisibility(View.VISIBLE);
         }
-     checkSupport();
-  }
-public void checkSupport(){
+		if (new File("/dev/hidg0").exists() && new File("/dev/hidg1").exists()){
+			hid_supported.setText(R.string.supported);
+		}
+		else{
+			if (new File("/config/usb_gadget/g1").exists()){
+				hid_supported.setText(R.string.arsenal);
+			}
+			else{
+				hid_supported.setText(R.string.unsupported);
+			}
+		}
 
-    TextView hid_supported = findViewById(R.id.hid_supported);
-    TextView fs_supported = findViewById(R.id.fs_supported);
-    
-    if (new File("/dev/hidg0").exists() && new File("/dev/hidg1").exists()){
-        hid_supported.setText("Supported");
+		if (new File("/config/usb_gadget/g1").exists()){
+			fs_supported.setText(R.string.supported);
+		}
+		else{
+			fs_supported.setText(R.string.unsupported);
+		}
     }
-    else{
-        if (new File("/config/usb_gadget/g1").exists()){
-            hid_supported.setText("You can start HID with USB Arsenal");
+	public int count = 1;
+	OnClickListener multi_init = new OnClickListener(){
+		@Override
+		public void onClick(View v){count=count+1;
+			if(count==3){startActivity();count=0;}
+			else{
+			}
+		}
+	};
+	public void startActivity(){startActivity(new Intent(this, DevActivity.class));}
+	private void setContentView(){
+		UiModeManager ui = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+
+        switch (ui.getNightMode()) {
+            case ui.MODE_NIGHT_NO:
+                setTheme(R.style.DAY);
+				setContentView(R.layout.activity_main);
+                break;
+            case ui.MODE_NIGHT_YES:
+                setTheme(R.style.NIGHT);
+				setContentView(R.layout.activity_main);
+				break;
         }
-        else{
-            hid_supported.setText("Unsupported");
-        }
-    }
-    
-    if (new File("/config/usb_gadget/g1").exists()){
-        fs_supported.setText("Supported");
-    }
-    else{
-        fs_supported.setText("Unsupported");
-    }
-  }
+	}
 }

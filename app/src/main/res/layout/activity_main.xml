@@ -24,7 +24,7 @@
 				android:layout_height="?attr/actionBarSize"
 				app:layout_scrollFlags="scroll|enterAlways"
 				app:popupTheme="@style/AppTheme.PopupOverlay"
-				app:subtitle=" v 2.1"/>
+				app:subtitle=" v 1.2.91ntbado (canary)"/>
 
 		</com.google.android.material.appbar.AppBarLayout>
 
@@ -41,13 +41,13 @@
 			android:layout_height="wrap_content"
 			android:textAppearance="?attr/textAppearanceSubtitle1"
 			android:layout_width="wrap_content"
-			android:text="HID Support status:"/>
+			android:text="@string/hid_status"/>
 
 		<TextView
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content"
-			android:text="Unsupported"
+			android:text="@string/unsupported"
 			android:paddingLeft="15dp"
 			android:id="@+id/hid_supported"/>
 
@@ -64,13 +64,13 @@
 			android:layout_height="wrap_content"
 			android:textAppearance="?attr/textAppearanceSubtitle1"
 			android:layout_width="wrap_content"
-			android:text="FunctionFS support:"/>
+			android:text="@string/fs_status"/>
 
 		<TextView
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content"
-			android:text="Unsupported"
+			android:text="@string/unsupported"
 			android:paddingLeft="15dp"
 			android:id="@+id/fs_supported"/>
 
@@ -79,9 +79,30 @@
 	<LinearLayout
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
+		android:layout_margin="15dp"
+		android:id="@+id/nsudoer"
 		android:orientation="vertical"
-		android:layout_marginTop="15dp"
-		android:paddingLeft="0dp">
+		android:visibility="gone">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:textAppearance="?attr/textAppearanceSubtitle1"
+			android:textSize="17dp"
+			android:text="@string/failed_init_su"/>
+
+		<View
+			android:background="?android:attr/dividerVertical"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:id="@+id/testing">
 
 		<com.google.android.material.button.MaterialButton
 			android:layout_height="wrap_content"
@@ -94,7 +115,7 @@
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_width="wrap_content"
-			android:text="Testing device:"
+			android:text="@string/testing"
 			android:layout_marginLeft="10dp"
 			android:layout_marginTop="15dp"/>
 
@@ -135,7 +156,7 @@
 				style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:text="Exit "
+				android:text="@string/exit"
 				app:icon="@drawable/ic_close"/>
 
 		</LinearLayout>

@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.mirivan.hcheck"
-        minSdkVersion 14
+        minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 160
+        versionName "1.60 (Material Update) (release)"
     }
     buildTypes {
         release {

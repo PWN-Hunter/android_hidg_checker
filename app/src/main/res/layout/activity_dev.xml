@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/AppBar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fitsSystemWindows="true"
+			android:theme="@style/AppTheme.AppBarOverlay">
+
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				app:layout_scrollFlags="scroll|enterAlways"
+				app:popupTheme="@style/AppTheme.PopupOverlay"
+				app:subtitle="@string/devscription"/>
+
+		</com.google.android.material.appbar.AppBarLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="15dp">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<com.google.android.material.textfield.TextInputLayout
+				style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+				android:layout_width="match_parent"
+				android:layout_height="58dp"
+				android:hint="@string/chmod_rules"
+				app:counterEnabled="true"
+				app:counterMaxLength="4"
+				app:errorEnabled="true"
+				android:id="@+id/rules_bar"
+				android:layout_weight="1">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/rules"
+					android:inputType="number"
+					android:text="0666"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"/>
+
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<com.google.android.material.button.MaterialButton
+				style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+				android:layout_width="wrap_content"
+				android:layout_height="60dp"
+				android:layout_marginLeft="5dp"
+				android:text="-&gt;"
+				android:id="@+id/chmod_btn"/>
+
+		</LinearLayout>
+
+		<com.google.android.material.button.MaterialButton
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/invalidate"
+			android:id="@+id/invalidate"
+			android:elevation="20dp"/>
+
+		<com.google.android.material.button.MaterialButton
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/reboot"
+			android:id="@+id/reboot"
+			android:elevation="20dp"/>
+
+		<com.google.android.material.button.MaterialButton
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/su_version"
+			android:id="@+id/su_version"
+			android:elevation="20dp"/>
+
+		<View
+			android:background="?android:attr/dividerVertical"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?attr/textAppearanceSubtitle1"
+			android:layout_marginTop="15dp"
+			android:id="@+id/output"
+			android:textIsSelectable="true"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

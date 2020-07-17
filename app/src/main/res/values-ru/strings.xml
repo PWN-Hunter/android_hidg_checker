@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="repermed">Права для всех интерфейсов изменены.</string>
+	<string name="failed_init_chmod">Не удалось инициализировать chmod.</string>
+	<string name="failed_init_su">Вы не можете использовать утилиту, поскольку у вас нет прав суперпользователя.</string>
+	<string name="supported">Поддерживается</string>
+	<string name="unsupported">Неподдерживается</string>
+	<string name="arsenal">Вы можете запустить HID с помощью USB Arsenal</string>
+	<string name="hid_status">Статус поддержки HID:</string>
+	<string name="fs_status">Поддержка FunctionsFS:</string>
+	<string name="testing">Тестирование устройства:</string>
+	<string name="exit">Выход </string>
+	<string name="devscription">Только для разработчиков</string>
+	<string name="chmod_rules">Правила к chmod любым вариантом</string>
+	<string name="invalidate">Аннулировать данные Checker`а</string>
+	<string name="reboot">Перезагрузить устройство (Если есть права)</string>
+	<string name="failed_reboot">Не удалось перезагрузить устройство.</string>
+	<string name="su_version">Данные о su (Консольный вывод)</string>
+	<string name="hide_su_version">Скрыть данные о su</string>
+</resources>

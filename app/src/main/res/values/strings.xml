@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<resources>
+		<string name="app_name">HID Checker</string>
+		<string name="repermed">All interfaces are repermed.</string>
+		<string name="failed_init_chmod">Failed to initialize chmod.</string>
+		<string name="failed_init_su">U can not use checker, because u haven`t super user rights.</string>
+		<string name="supported">Supported</string>
+		<string name="unsupported">Unsupported</string>
+		<string name="arsenal">You can start HID with USB Arsenal</string>
+		<string name="hid_status">HID Support status:</string>
+		<string name="fs_status">FunctionsFS Support:</string>
+		<string name="testing">Testing device:</string>
+		<string name="exit">Exit </string>
+		<string name="devscription">For developers only</string>
+		<string name="chmod_rules">Rules to chmod with all variants (Debug)</string>
+		<string name="kill">Kill this process (checker pid)</string>
+		<string name="invalidate">Invalidate checker data</string>
+		<string name="reboot">Reboot phone (If root)</string>
+		<string name="failed_reboot">Failed to reboot device.</string>
+		<string name="su_version">Check su version (Console output)</string>
+		<string name="hide_su_version">Hide su version</string>
+		<string name="ok">OK</string>
+	</resources>
